@@ -40,7 +40,7 @@ namespace Mango.Services.Identity.Initializer
                 LastName = "Admin"
             };
 
-            _userManager.CreateAsync(adminUser,"Admin123").GetAwaiter().GetResult();
+            _userManager.CreateAsync(adminUser,"Admin123*").GetAwaiter().GetResult();
             _userManager.AddToRoleAsync(adminUser, SD.Admin).GetAwaiter().GetResult();
 
             var temp1 =_userManager.AddClaimsAsync(adminUser, new Claim[]{
@@ -60,7 +60,7 @@ namespace Mango.Services.Identity.Initializer
                 LastName = "Cust"
             };
 
-            _userManager.CreateAsync(customerUser, "Admin123").GetAwaiter().GetResult();
+            _userManager.CreateAsync(customerUser, "Admin123*").GetAwaiter().GetResult();
             _userManager.AddToRoleAsync(customerUser, SD.Customer).GetAwaiter().GetResult();
 
             var temp2 = _userManager.AddClaimsAsync(customerUser, new Claim[]{
