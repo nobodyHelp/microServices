@@ -1,10 +1,11 @@
 using Mango.Web;
 using Mango.Web.Services;
 using Mango.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.IdentityModel.Logging;
 using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddHttpClient<IProductService, ProductService>();
 SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"];

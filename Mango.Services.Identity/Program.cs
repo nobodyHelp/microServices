@@ -1,10 +1,12 @@
+using Duende.IdentityServer.Services;
 using Mango.Services.Identity;
 using Mango.Services.Identity.Data;
 using Mango.Services.Identity.Data.Models;
 using Mango.Services.Identity.Initializer;
+using Mango.Services.Identity.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,14 +25,14 @@ var identityBuilder = builder.Services.AddIdentityServer(options =>
     options.Events.RaiseInformationEvents = true;
     options.Events.RaiseFailureEvents = true;
     options.Events.RaiseSuccessEvents = true;
-    options.EmitStaticAudienceClaim = true;
+    options.EmitStaticAudienceClaim = true;    
 }).AddInMemoryIdentityResources(SD.IdentityResourses)
 .AddInMemoryApiScopes(SD.ApiScopes)
 .AddInMemoryClients(SD.Clients)
 .AddAspNetIdentity<ApplicationUser>();
 
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
-
+builder.Services.AddScoped<IProfileService, ProfileService>();
 identityBuilder.AddDeveloperSigningCredential();
 
 builder.Services.AddControllersWithViews();
