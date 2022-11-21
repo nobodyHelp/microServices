@@ -25,7 +25,7 @@ namespace Mango.Services.Identity.Services
         public async Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
             string sub = context.Subject.GetSubjectId();
-            ApplicationUser user = await _userManager.FindByNameAsync(sub);
+            ApplicationUser user = await _userManager.FindByIdAsync(sub);
             ClaimsPrincipal userClaims = await _userClaimsPrincipalFactory.CreateAsync(user);
 
             List<Claim> claims = userClaims.Claims.ToList();

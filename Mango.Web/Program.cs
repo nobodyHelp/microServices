@@ -44,6 +44,8 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");   
     app.UseHsts();
 }
+app.UseDeveloperExceptionPage();
+IdentityModelEventSource.ShowPII = true;
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
