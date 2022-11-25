@@ -1,8 +1,8 @@
 using AutoMapper;
-using Mango.Services.ProductAPI;
-using Mango.Services.ProductAPI.Data;
-using Mango.Services.ProductAPI.Data.Repository;
-using Mango.Services.ProductAPI.Data.Repository.Interfaces;
+using Mango.Services.ShoppingCartAPI;
+using Mango.Services.ShoppingCartAPI.Data;
+using Mango.Services.ShoppingCartAPI.Repository;
+using Mango.Services.ShoppingCartAPI.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -66,7 +66,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 var app = builder.Build();
 
@@ -77,7 +77,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

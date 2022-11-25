@@ -1,4 +1,4 @@
-﻿namespace Mango.Services.ProductAPI.Data.Dtos
+﻿namespace Mango.Services.ProductAPI.Data.Dto
 {
     public class ResponseDto
     {

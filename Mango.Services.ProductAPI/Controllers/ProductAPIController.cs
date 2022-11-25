@@ -1,4 +1,5 @@
-﻿using Mango.Services.ProductAPI.Data.Dtos;
+﻿using Mango.Services.ProductAPI.Data.Dto;
+using Mango.Services.ProductAPI.Data.Dtos;
 using Mango.Services.ProductAPI.Data.Repository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
