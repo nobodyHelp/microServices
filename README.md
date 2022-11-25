@@ -3,7 +3,7 @@
 <h3>Microservices:</h3>
 - Product management service :white_check_mark:</br>
 - Coupon management service :x:</br>
-- Service to work with the basket :x:</br>
+- Service to work with the shopping cart:x:</br>
 - Authorization service :white_check_mark:</br>
 - Ordering service :x:</br>
 
